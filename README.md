@@ -2,7 +2,7 @@
 
 Replace default RichEditor of strapi for [EditorJS](https://editorjs.io/)
 
-![Example of plugin](./static/example.png)
+![Example of plugin](https://raw.githubusercontent.com/barbieri-tech/strapi-editorjs/main/static/example.png)
 
 ### Installing
 Enter in strapi root path instalation, and install the package
