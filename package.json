@@ -2,6 +2,9 @@
   "name": "strapi-plugin-editor",
   "version": "0.0.01",
   "description": "Strapi - EditorJS Replacement",
+  "keywords": ["strapi", "strapi-plugin", "editor", "editorjs", "strapi-editorjs"],
+  "homepage": "https://github.com/barbieri-tech/strapi-editorjs",
+  "repository": "https://github.com/barbieri-tech/strapi-editorjs",
   "strapi": {
     "name": "editorjs",
     "icon": "plug",

@@ -10,10 +10,10 @@ Enter in strapi root path instalation, and install the package
 
 ```bash
 # Using npm
-$ npm install strapi-plugin-editorjs-io
+$ npm install strapi-plugin-editor
 
 # Using yarn
-$ yarn add strapi-plugin-editorjs-io
+$ yarn add strapi-plugin-editor
 ```
 
 After, you will need rebuild the strapi admin using the follow command
