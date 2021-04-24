@@ -1,2 +1,3 @@
-# strapi-editor-js
-A better post editor for strapi
+# Strapi plugin wysiwyg
+
+A quick description of wysiwyg.
