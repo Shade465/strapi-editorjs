@@ -26,3 +26,7 @@ $ npm run build
 # Using yarn
 $ yarn build
 ```
+
+
+### Thanks
+Especial thanks for [Kay van Bree](https://github.com/kayvanbree) and [Cyril Lopez](https://github.com/soupette) that are maintainer/contribuitor of [strapi-editorjs](https://github.com/kayvanbree/strapi-editorjs), repository that I had based to construct this plugin
