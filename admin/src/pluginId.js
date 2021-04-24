@@ -1,3 +1,3 @@
-const pluginId = 'wysiwyg-custom'
+const pluginId = 'editorjs'
 
 module.exports = pluginId;

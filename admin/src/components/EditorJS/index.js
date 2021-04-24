@@ -1,71 +1,80 @@
-import Undo from 'editorjs-undo';
+import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
-import EditorJs from 'react-editor-js';
-import { auth, request } from 'strapi-helper-plugin';
-import styled from 'styled-components';
-import { EditorTools } from './tools';
-const isEqual = require('react-fast-compare');
+import React from 'react';
+import { InputDescription, InputErrors, Label } from 'strapi-helper-plugin';
+import EditorJS from './editor';
 
-const EditorWrapper = styled.div`
-  .codex-editor {
-    min-height: 200px;
-    box-shadow: 0px 2px 3px 3px #eaeaea;
-    padding-top: 50px;
-    border-radius: 5px;
-    .codex-editor__redactor {
-      padding-bottom: 100px !important;
-    }
+const Wysiwyg = ({
+  inputDescription,
+  errors,
+  label,
+  name,
+  noErrorsDescription,
+  onChange,
+  value,
+}) => {
+  let spacer = !isEmpty(inputDescription) ? (
+    <div style={{ height: '.4rem' }} />
+  ) : (
+    <div />
+  );
+
+  if (!noErrorsDescription && !isEmpty(errors)) {
+    spacer = <div />;
   }
-`;
-
-const Editor = ({ onChange, name, value }) => {
-  const [enabledReinitialize, setEnabledReinitialize] = useState(true);
-  console.log(strapi.backendURL);
-
-  const onSave = (api, data) => {
-    try {
-      const dataString = JSON.stringify(data);
-      onChange({ target: { name, value: dataString } });
-    } catch (e) {}
-  };
-
-  const onCompareBlocks = (oldBLocks, newBLocks) => {
-    setEnabledReinitialize(false);
-    return isEqual(oldBLocks, newBLocks);
-  };
-
-  const onReady = () => {
-    const waitDataInterval = setInterval(() => {
-      if (enabledReinitialize || data) {
-        clearInterval(waitDataInterval);
-        const undo = new Undo({ editor });
-        undo.initialize(JSON.parse(value));
-      }
-    });
-  };
 
   return (
-    <EditorWrapper>
-      <EditorJs
-        data={JSON.parse(value)}
-        onChange={onSave}
-        onCompareBlocks={onCompareBlocks}
-        enableReInitialize={enabledReinitialize}
-        tools={EditorTools(auth, request)}
-        onReady={onReady}
-        editorInstance={(editorInstance) => {
-          editor = editorInstance;
-        }}
+    <div
+      className="col-12"
+      style={{
+        marginBottom: '1.6rem',
+        fontSize: '1.3rem',
+        fontFamily: 'Lato',
+      }}
+    >
+      <Label htmlFor={name} message={label} style={{ marginBottom: 10 }} />
+      <EditorJS name={name} onChange={onChange} value={value} />
+      <InputDescription
+        message={inputDescription}
+        style={!isEmpty(inputDescription) ? { marginTop: '1.4rem' } : {}}
       />
-    </EditorWrapper>
+      <InputErrors
+        errors={(!noErrorsDescription && errors) || []}
+        name={name}
+      />
+      {spacer}
+    </div>
   );
 };
 
-Editor.propTypes = {
-  onChange: PropTypes.func.isRequired,
+Wysiwyg.defaultProps = {
+  errors: [],
+  label: '',
+  noErrorsDescription: false,
+};
+
+Wysiwyg.propTypes = {
+  errors: PropTypes.array,
+  inputDescription: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.shape({
+      id: PropTypes.string,
+      params: PropTypes.object,
+    }),
+  ]),
+  label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.shape({
+      id: PropTypes.string,
+      params: PropTypes.object,
+    }),
+  ]),
   name: PropTypes.string.isRequired,
+  noErrorsDescription: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
 
-export default Editor;
+export default Wysiwyg;

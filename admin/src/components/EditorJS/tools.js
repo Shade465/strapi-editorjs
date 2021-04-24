@@ -44,7 +44,7 @@ export const EditorTools = (auth, request) => {
     linkTool: {
       class: LinkTool,
       config: {
-        endpoint: `${strapi.backendURL}/wysiwyg/fetchUrl`,
+        endpoint: `${strapi.backendURL}/editorjs/fetchUrl`,
       },
     },
     raw: {

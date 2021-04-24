@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/",
-      "handler": "wysiwyg.index",
+      "handler": "editorjs.index",
       "config": {
         "policies": []
       }
@@ -11,7 +11,7 @@
     {
       "method": "GET",
       "path": "/fetchUrl",
-      "handler": "wysiwyg.fetchUrl",
+      "handler": "editorjs.fetchUrl",
       "config": {
         "policies": []
       }
