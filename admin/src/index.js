@@ -2,11 +2,12 @@ import pluginPkg from '../../package.json';
 import EditorJS from './components/EditorJS';
 import pluginId from './pluginId';
 
-export default strapi => {
-  const pluginDescription = pluginPkg.strapi.description || pluginPkg.description;
+export default (strapi) => {
+  const pluginDescription =
+    pluginPkg.strapi.description || pluginPkg.description;
   const icon = pluginPkg.strapi.icon;
   const name = pluginPkg.strapi.name;
-  
+
   const plugin = {
     blockerComponent: null,
     blockerComponentProps: {},
@@ -22,20 +23,7 @@ export default strapi => {
     preventComponentRendering: false,
     settings: null,
     trads: {},
-    menu: {
-      pluginsSectionLinks: [
-        {
-          destination: `/plugins/${pluginId}`,
-          icon,
-          label: {
-            id: `${pluginId}.plugin.name`,
-            defaultMessage: name,
-          },
-          name,
-          permissions: []
-        }
-      ]
-    }
+    menu: {},
   };
 
   strapi.registerField({ type: 'wysiwyg', Component: EditorJS });

@@ -10,9 +10,10 @@ const isEqual = require('react-fast-compare');
 const EditorWrapper = styled.div`
   .codex-editor {
     min-height: 200px;
-    box-shadow: 0px 2px 3px 3px #eaeaea;
     padding-top: 50px;
-    border-radius: 5px;
+    border: 1px solid rgb(227, 233, 243);
+    border-radius: 2px;
+    color: rgb(56 56 56);
     .codex-editor__redactor {
       padding-bottom: 100px !important;
     }

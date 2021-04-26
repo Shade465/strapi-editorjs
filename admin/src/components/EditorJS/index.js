@@ -4,7 +4,7 @@ import React from 'react';
 import { InputDescription, InputErrors, Label } from 'strapi-helper-plugin';
 import EditorJS from './editor';
 
-const Wysiwyg = ({
+const EditorContainer = ({
   inputDescription,
   errors,
   label,
@@ -24,14 +24,7 @@ const Wysiwyg = ({
   }
 
   return (
-    <div
-      className="col-12"
-      style={{
-        marginBottom: '1.6rem',
-        fontSize: '1.3rem',
-        fontFamily: 'Lato',
-      }}
-    >
+    <div>
       <Label htmlFor={name} message={label} style={{ marginBottom: 10 }} />
       <EditorJS name={name} onChange={onChange} value={value} />
       <InputDescription
@@ -47,13 +40,13 @@ const Wysiwyg = ({
   );
 };
 
-Wysiwyg.defaultProps = {
+EditorContainer.defaultProps = {
   errors: [],
   label: '',
   noErrorsDescription: false,
 };
 
-Wysiwyg.propTypes = {
+EditorContainer.propTypes = {
   errors: PropTypes.array,
   inputDescription: PropTypes.oneOfType([
     PropTypes.string,
@@ -77,4 +70,4 @@ Wysiwyg.propTypes = {
   value: PropTypes.string.isRequired,
 };
 
-export default Wysiwyg;
+export default EditorContainer;

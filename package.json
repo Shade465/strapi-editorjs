@@ -1,13 +1,19 @@
 {
   "name": "strapi-plugin-editor",
-  "version": "0.0.01",
+  "version": "0.0.03",
   "description": "Strapi - EditorJS Replacement",
-  "keywords": ["strapi", "strapi-plugin", "editor", "editorjs", "strapi-editorjs"],
+  "keywords": [
+    "strapi",
+    "strapi-plugin",
+    "editor",
+    "editorjs",
+    "strapi-editorjs"
+  ],
   "homepage": "https://github.com/barbieri-tech/strapi-editorjs",
   "repository": "https://github.com/barbieri-tech/strapi-editorjs",
   "strapi": {
     "name": "editorjs",
-    "icon": "plug",
+    "icon": "edit",
     "description": "EditorJS Replacement"
   },
   "dependencies": {
@@ -28,6 +34,7 @@
     "@editorjs/simple-image": "^1.4.1",
     "@editorjs/table": "^1.2.1",
     "@editorjs/warning": "^1.2.0",
+    "editorjs-undo": "^0.1.5",
     "open-graph-scraper": "^4.8.1",
     "react-editor-js": "^1.9.0"
   },
